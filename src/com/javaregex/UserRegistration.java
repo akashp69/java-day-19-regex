@@ -6,22 +6,22 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
     static Scanner sc=new Scanner(System.in);
-    public void validateUsername() {
-        System.out.println("Enter UserName");
-        String userName=sc.next();
+    public void validateLastname() {
+        System.out.println("Enter LastName");
+        String LastName=sc.next();
         String regex = "^[A-Z]{1}[a-zA-z0-9]{2,}$";
 
         Pattern p = Pattern.compile(regex);
 
-        Matcher matcher = p.matcher(userName);
+        Matcher matcher = p.matcher(LastName);
 
         boolean result = matcher.matches();
 
         if(result){
-            System.out.println("Valid username");
+            System.out.println("Valid lastname");
         }
         else {
-            System.out.println("Invalid username");
+            System.out.println("Invalid lastname");
         }
     }
     public static void main(String[] args) {
@@ -30,13 +30,13 @@ public class UserRegistration {
 
         while(true) {
 
-            System.out.println("Enter choice.............\n " +"1)UserName\n");
+            System.out.println("Enter choice.............\n " +"1)LastName\n");
 
             int choice=sc.nextInt();
 
             switch(choice) {
                 case 1:
-                    registration.validateUsername();
+                    registration.validateLastname();
                     break;
                 default:
                     System.out.println("Invalid choice");
