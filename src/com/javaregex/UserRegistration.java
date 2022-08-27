@@ -8,7 +8,7 @@ public class UserRegistration {
     public void validateUserName() {
         System.out.println("Enter UserName");
         String userName = sc.next();
-        String regex = "^[A-Z]{2}[a-zA-z0-9]{2,}$";
+        String regex = "^[A-Z]{1}[a-zA-z0-9]{2,}$";
 
         Pattern p = Pattern.compile(regex);
 
