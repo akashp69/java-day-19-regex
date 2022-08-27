@@ -8,7 +8,7 @@ public class UserRegistration {
     public void validateUserName() {
         System.out.println("Enter UserName");
         String userName = sc.next();
-        String regex = "^[A-Z]{1}[a-zA-z0-9]{2,}$";
+        String regex = "^[A-Z]{2}[a-zA-z0-9]{2,}$";
 
         Pattern p = Pattern.compile(regex);
 
@@ -61,15 +61,28 @@ public class UserRegistration {
             System.out.println("Invalid MobileNo");
         }
     }
+    public void validPassword (){
+        System.out.println("Enter Password ");
+        String password = sc.next();
+        String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher matcher = p.matcher(password);
+        boolean result = matcher.matches();
+        if (result) {
+            System.out.println("Valid Password");
+        } else {
+            System.out.println("Invalid Password");
+        }
+    }
     public static void main(String[] args) {
-       
+
         UserRegistration registration = new UserRegistration();
 
         while (true) {
 
             System.out.println(
                     "Enter choice to validate\n" + "Enter 1 for UserName\n"
-                            + "Enter 2 for Lastname\n" + "Enter 3 for Email\n" + "Enter 4 for phone number\n");
+                            + "Enter 2 for Lastname\n" + "Enter 3 for Email\n" + "Enter 4 for phone number\n" + "Enter 5 for  Password\n");
             int choice = sc.nextInt();
             switch (choice) {
                 case 1 :
@@ -83,6 +96,9 @@ public class UserRegistration {
                     break;
                 case 4:
                     registration.validPhoneNo();
+                    break;
+                case 5 :
+                    registration.validPassword();
                     break;
                 default :
                     System.out.println("Invalid choice");
